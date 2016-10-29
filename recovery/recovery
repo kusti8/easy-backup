@@ -6,16 +6,16 @@ fdisk /dev/mmcblk0 <<EOF
 d # Delete the first partition
 n # Create a new partition for boot
 p # A primary partition temporarily
-1 # Partition 1
-8192 # Start at 8192
-+68M # Make boot partition
+1
+8192
++68M
 t # Set the type
-c # To W95 LBA
+c
 n
 p
 2
-# The start
-# The end
+
+
 w # Write it all
 EOF
 mkfs.fat -F 32 /dev/mmcblk0p1
