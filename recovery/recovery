@@ -3,6 +3,7 @@
 set -e
 
 sleep 20 # Wait till everything is finished
+clear
 fdisk /dev/mmcblk0 <<EOF
 d # Delete the first partition
 n # Create a new partition for boot
@@ -25,9 +26,6 @@ echo y | mkfs.ext4 /dev/mmcblk0p2
 /bin/mount /dev/mmcblk0p2 /mnt
 mkdir /mnt/boot
 /bin/mount -o umask=000 /dev/mmcblk0p1 /mnt/boot
-clear
-echo "!!!Waiting 20 seconds for USB disk...!!!"
-sleep 20
 /bin/mount /dev/sda1 /root
 
 tar xpvf --one-file-system /root/boot.tar.xz -C /mnt/boot/
