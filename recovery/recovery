@@ -1,1 +1,35 @@
 #!/bin/bash
+
+fdisk /dev/mmcblk0 <<EOF
+d # Delete the first partition
+n # Create a new partition for boot
+p # A primary partition temporarily
+1 # Partition 1
+8192 # Start at 8192
++68M # Make boot partition
+t # Set the type
+c # To W95 LBA
+n
+p
+2
+# The start
+# The end
+w # Write it all
+EOF
+mkfs.fat -F 32 /dev/mmcblk0p1
+mkfs.ext4 /dev/mmcblk0p2
+mkdir -p /usb
+mkdir -p /mnt/boot
+/bin/mount /dev/mmcblk0p1 /mnt
+/bin/mount /dev/mmcblk0p2 /mnt/boot
+/bin/mount -o umask=000 /dev/sda1 /usb
+
+tar xvf --one-file-system /usb/boot.tar.xz -C /mnt/boot/
+tar xvf --one-file-system /usb/root.tar.xz -C /mnt/
+
+umount /mnt/boot
+umount /mnt
+umount /usb
+
+clear
+echo "ALL DONE! PULL THE POWER AND BOOT AGAIN!"
