@@ -19,22 +19,21 @@ p
 w # Write it all
 EOF
 echo y | mkfs.fat -F 32 /dev/mmcblk0p1
-mkfs.ext4 -F /dev/mmcblk0p2
-mkdir -p /usb
-mkdir -p /mnt/boot
+echo y | mkfs.ext4 /dev/mmcblk0p2
+
 /bin/mount /dev/mmcblk0p1 /mnt
 /bin/mount /dev/mmcblk0p2 /mnt/boot
 clear
 echo "!!!Waiting 20 seconds for USB disk...!!!"
 sleep 20
-/bin/mount /dev/sda1 /usb
+/bin/mount /dev/sda1 /root
 
-tar xpvf --one-file-system /usb/boot.tar.xz -C /mnt/boot/
-tar xpvf --one-file-system /usb/root.tar.xz -C /mnt/
+tar xpvf --one-file-system /root/boot.tar.xz -C /mnt/boot/
+tar xpvf --one-file-system /root/root.tar.xz -C /mnt/
 
 umount /mnt/boot
 umount /mnt
-umount /usb
+umount /root
 
 clear
 echo "ALL DONE! PULL THE POWER AND BOOT AGAIN!"
