@@ -22,7 +22,7 @@ mkdir -p /usb
 mkdir -p /mnt/boot
 /bin/mount /dev/mmcblk0p1 /mnt
 /bin/mount /dev/mmcblk0p2 /mnt/boot
-/bin/mount -o umask=000 /dev/sda1 /usb
+/bin/mount /dev/sda1 /usb
 
 tar xvf --one-file-system /usb/boot.tar.xz -C /mnt/boot/
 tar xvf --one-file-system /usb/root.tar.xz -C /mnt/
