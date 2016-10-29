@@ -29,8 +29,8 @@ echo "!!!Waiting 10 seconds for USB disk...!!!"
 sleep 10
 /bin/mount /dev/sda1 /usb
 
-tar xvf --one-file-system /usb/boot.tar.xz -C /mnt/boot/
-tar xvf --one-file-system /usb/root.tar.xz -C /mnt/
+tar xpvf --one-file-system /usb/boot.tar.xz -C /mnt/boot/
+tar xpvf --one-file-system /usb/root.tar.xz -C /mnt/
 
 umount /mnt/boot
 umount /mnt
