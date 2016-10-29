@@ -18,15 +18,15 @@ p
 
 w # Write it all
 EOF
-mkfs.fat -F 32 /dev/mmcblk0p1
-mkfs.ext4 /dev/mmcblk0p2
+echo y | mkfs.fat -F 32 /dev/mmcblk0p1
+mkfs.ext4 -F /dev/mmcblk0p2
 mkdir -p /usb
 mkdir -p /mnt/boot
 /bin/mount /dev/mmcblk0p1 /mnt
 /bin/mount /dev/mmcblk0p2 /mnt/boot
 clear
-echo "!!!Waiting 10 seconds for USB disk...!!!"
-sleep 10
+echo "!!!Waiting 20 seconds for USB disk...!!!"
+sleep 20
 /bin/mount /dev/sda1 /usb
 
 tar xpvf --one-file-system /usb/boot.tar.xz -C /mnt/boot/
