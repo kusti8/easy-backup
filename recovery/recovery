@@ -22,9 +22,9 @@ EOF
 echo y | mkfs.fat -F 32 /dev/mmcblk0p1
 echo y | mkfs.ext4 /dev/mmcblk0p2
 
-/bin/mount /dev/mmcblk0p1 /mnt
+/bin/mount /dev/mmcblk0p2 /mnt
 mkdir /mnt/boot
-/bin/mount -o umask=000 /dev/mmcblk0p2 /mnt/boot
+/bin/mount -o umask=000 /dev/mmcblk0p1 /mnt/boot
 clear
 echo "!!!Waiting 20 seconds for USB disk...!!!"
 sleep 20
