@@ -2,6 +2,7 @@
 
 set -e
 
+sleep 20 # Wait till everything is finished
 fdisk /dev/mmcblk0 <<EOF
 d # Delete the first partition
 n # Create a new partition for boot
@@ -22,7 +23,8 @@ echo y | mkfs.fat -F 32 /dev/mmcblk0p1
 echo y | mkfs.ext4 /dev/mmcblk0p2
 
 /bin/mount /dev/mmcblk0p1 /mnt
-/bin/mount /dev/mmcblk0p2 /mnt/boot
+mkdir /mnt/boot
+/bin/mount -o umask=000 /dev/mmcblk0p2 /mnt/boot
 clear
 echo "!!!Waiting 20 seconds for USB disk...!!!"
 sleep 20
