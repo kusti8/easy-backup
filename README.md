@@ -13,14 +13,14 @@ sudo chmod +x /usr/bin/easy-backup
 ```
 and plug in a USB disk. Mount it of course and run the script:
 ```
-easy-backup [usb-disk-location]
+sudo easy-backup [usb-disk-location]
 ```
 All the essential files, `boot.tar.xz`, and `root.tar.xz` are on the USB disk!
 ## Restore
 Easy-backup works on any platform that supports drag and drop.
-Simply copy the files linked below to a FAT32 SD card, just like NOOBS.
+Simply [copy the files linked](https://github.com/kusti8/easy-backup/releases/download/2.1/easy-backup-restore.zip) to a FAT32 SD card, just like NOOBS.
 Then plug in the USB disk and boot. It will take care of the rest. Pull the power
-and reapply power when finished
+and reapply power when finished.
 
 ## License
 This is licensed under GPL 3.0. I am not responsible for any lost files.
