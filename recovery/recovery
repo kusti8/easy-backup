@@ -28,8 +28,8 @@ mkdir /mnt/boot
 /bin/mount -o umask=000 /dev/mmcblk0p1 /mnt/boot
 /bin/mount /dev/sda1 /root
 
-tar xpvf /root/boot.tar.xz -C /mnt/boot/
-tar xpvf /root/root.tar.xz -C /mnt/
+tar xpzkf /root/boot.tar.gz -C /mnt/boot/
+tar xpzkf /root/root.tar.gz -C /mnt/
 
 umount /mnt/boot
 umount /mnt
