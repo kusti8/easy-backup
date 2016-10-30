@@ -10,13 +10,13 @@ n # Create a new partition for boot
 p # A primary partition temporarily
 1
 8192
-+68M
+137295
 t # Set the type
 c
 n
 p
 2
-
+137296
 
 w # Write it all
 EOF
